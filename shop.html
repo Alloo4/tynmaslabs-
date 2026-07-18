@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0D12">
+<title>Shop | Tynmas Labs</title>
+<meta name="description" content="Shop ready-made 3D-printed products from Tynmas Labs — desk accessories, home decor, personalised gifts and more. Designed and printed in Nairobi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232563EB'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">T</span>
+      <span class="brand-name">TYNMAS LABS</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-outline btn-sm"><span>Request a Quote</span></a>
+      <button class="cart-btn" id="cartBtn" aria-label="Cart" title="Cart is in-memory only for now">🛒<span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- SHOP HEADER -->
+  <section class="container" style="padding:52px 0 26px">
+    <div class="breadcrumb"><a href="index.html">Home</a> · Shop</div>
+    <div class="shop-toolbar">
+      <div>
+        <h1 class="page-title">Shop 3D-printed products</h1>
+        <p style="font-size:16px;color:var(--muted)" class="text-plain">Ready-made items designed and printed in Nairobi. Something specific in mind? <a href="contact.html">Request a custom quote</a>.</p>
+      </div>
+      <div class="search-box">
+        <span>⌕</span>
+        <input type="text" id="searchInput" placeholder="Search products…">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY FILTERS -->
+  <section class="container" style="padding:6px 0 26px">
+    <div class="chip-row" id="categoryChips"></div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section class="container" style="padding:0 0 20px">
+    <div class="grid-4 grid-products" id="productGrid"></div>
+    <div class="no-results" id="noResults" style="display:none">
+      <div class="glyph">⌕</div>
+      <div class="title">No products found</div>
+      <div>Try a different search or category.</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- QUICK-VIEW MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-media"><div class="img-slot"><span id="modalImgLabel">Product photo</span></div></div>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div class="product-cat" id="modalCat"></div>
+        <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <h2 id="modalName"></h2>
+      <div class="modal-price" id="modalPrice"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <div class="option-label">Color</div>
+      <div class="color-row" id="modalColors"></div>
+
+      <div class="option-label">Material</div>
+      <div class="mat-row" id="modalMaterials"></div>
+
+      <div class="option-label">Quantity</div>
+      <div class="qty-stepper">
+        <button id="qtyDec" aria-label="Decrease quantity">−</button>
+        <div class="qty-value" id="qtyValue">1</div>
+        <button id="qtyInc" aria-label="Increase quantity">+</button>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-outline" id="addToCartBtn">Add to Cart</button>
+        <a href="contact.html" class="btn btn-primary">Buy Now</a>
+      </div>
+      <!-- future: reviews slot -->
+      <div class="reviews-slot" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD CONFIRMATION TOAST -->
+<div class="toast" id="toast">
+  <span class="check">✓</span>
+  <span class="msg">Added to cart</span>
+</div>
+
+<div style="height:40px"></div>
+
+<footer class="site-footer">
+  <div class="footer-simple">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" style="width:26px;height:26px;font-size:13px">T</span>
+      <span class="brand-name" style="font-size:14px">TYNMAS LABS</span>
+    </a>
+    <div style="font-size:12.5px;color:var(--muted-2)">© <span id="year"></span> Tynmas Labs · Made in Nairobi, Kenya</div>
+    <div class="footer-simple-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- future: recommended products slot -->
+<div id="recommendedSlot" style="display:none"></div>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/shop.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0D12">
+<title>Contact &amp; Request a Quote | Tynmas Labs</title>
+<meta name="description" content="Request a 3D printing quote or get in touch with Tynmas Labs — WhatsApp, email, workshop location and business hours in Nairobi, Kenya.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232563EB'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">T</span>
+      <span class="brand-name">TYNMAS LABS</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="shop.html" class="btn btn-outline btn-sm"><span>Shop Now</span></a>
+      <a href="https://wa.me/254700000000" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><span>WhatsApp</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="shop.html" class="btn btn-outline">Shop Now</a>
+    <a href="https://wa.me/254700000000" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="container page-hero">
+    <div class="eyebrow" style="text-align:center">Contact &amp; Quotes</div>
+    <h1>Request a quote or say hello.</h1>
+    <p>Send your file for an instant estimate, or just tell us the idea. We usually reply the same day.</p>
+  </section>
+
+  <section class="container contact-grid" style="padding:20px 0 40px">
+    <!-- QUOTE FORM -->
+    <div class="quote-panel">
+
+      <div class="success-state" id="successState">
+        <div class="success-icon">✓</div>
+        <h3>Request sent!</h3>
+        <p>Thanks — we'll review your details and get back to you shortly. For anything urgent, message us on WhatsApp.</p>
+        <button class="btn btn-outline" id="sendAnotherBtn" type="button">Send another</button>
+      </div>
+
+      <form class="quote-form" id="quoteForm">
+        <h2>Request a quote</h2>
+
+        <input type="file" id="fileInput" accept=".stl,.obj,.3mf,.step,.stp" style="display:none">
+        <div class="dropzone" id="dropzone">
+          <div class="dropzone-icon" id="dropIcon">⬆</div>
+          <div class="dropzone-name" id="dropName">Drop your 3D file or click to browse</div>
+          <div class="dropzone-hint" id="dropHint">STL · OBJ · 3MF · STEP — up to 256 MB</div>
+        </div>
+
+        <div class="estimate-row" id="estimateRow" style="display:none">
+          <div class="estimate-cell">
+            <div class="estimate-label">Est. weight</div>
+            <div class="estimate-value" id="estWeight">0 g</div>
+          </div>
+          <div class="estimate-cell">
+            <div class="estimate-label">Est. price</div>
+            <div class="estimate-value accent" id="estPrice">KSh 0</div>
+          </div>
+          <div class="estimate-cell">
+            <div class="estimate-label">Ready by</div>
+            <div class="estimate-value" id="estLead">48 hours</div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="nameInput">Name</label>
+            <input type="text" id="nameInput" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="phoneInput">Phone / WhatsApp</label>
+            <input type="text" id="phoneInput" placeholder="+254 7XX XXX XXX">
+          </div>
+        </div>
+        <div class="field">
+          <label for="emailInput">Email</label>
+          <input type="email" id="emailInput" placeholder="you@email.com">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="materialSelect">Material</label>
+            <select id="materialSelect">
+              <option>PLA</option>
+              <option>PETG</option>
+              <option>ABS</option>
+              <option>Nylon-CF</option>
+              <option>TPU (flexible)</option>
+              <option>Not sure — advise me</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qtyInput">Quantity</label>
+            <input type="number" id="qtyInput" min="1" value="1">
+          </div>
+        </div>
+        <div class="field">
+          <label for="timelineSelect">Timeline</label>
+          <select id="timelineSelect">
+            <option>Standard (48 hours)</option>
+            <option>This week</option>
+            <option>Rush — as soon as possible</option>
+            <option>Flexible / no rush</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="messageInput">Project description</label>
+          <textarea id="messageInput" rows="4" placeholder="Tell us about the part — size, use, finish, anything relevant."></textarea>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px">
+          <button type="submit" class="btn btn-primary">Send request</button>
+          <span class="form-error" id="formError" style="display:none">Please add your name and a way to reach you.</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="contact-col">
+      <a href="https://wa.me/254700000000" target="_blank" rel="noopener" class="whatsapp-cta">
+        <div class="whatsapp-cta-icon">💬</div>
+        <div>
+          <div class="whatsapp-cta-title">Chat on WhatsApp</div>
+          <div class="whatsapp-cta-sub">Fastest way to reach us</div>
+        </div>
+      </a>
+
+      <div class="info-card">
+        <div class="info-title">Reach us</div>
+        <div class="info-row">
+          <div class="info-icon">✆</div>
+          <div><div class="info-sub">Phone / WhatsApp</div><div class="info-main">+254 7XX XXX XXX</div></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">✉</div>
+          <div><div class="info-sub">Email</div><a href="mailto:hello@tynmaslabs.com" class="info-main">hello@tynmaslabs.com</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div><div class="info-sub">Location</div><div class="info-main">Nairobi, Kenya</div></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">◎</div>
+          <div><div class="info-sub">Instagram</div><a href="https://www.instagram.com/tynmas3d" target="_blank" rel="noopener" class="info-main">@tynmas3d</a></div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Business hours</div>
+        <div class="hours-row"><span>Mon – Fri</span><span>8:30 – 18:00</span></div>
+        <div class="hours-row"><span>Saturday</span><span>9:00 – 15:00</span></div>
+        <div class="hours-row closed"><span>Sunday</span><span>Closed</span></div>
+      </div>
+
+      <div class="map-slot">
+        <span class="pin">📍</span>
+        <span>Workshop location — Nairobi, Kenya</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="container section" style="max-width:860px">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px" id="faqList"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-simple">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" style="width:26px;height:26px;font-size:13px">T</span>
+      <span class="brand-name" style="font-size:14px">TYNMAS LABS</span>
+    </a>
+    <div style="font-size:12.5px;color:var(--muted-2)">© <span id="year"></span> Tynmas Labs · Made in Nairobi, Kenya</div>
+    <div class="footer-simple-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="services.html">Services</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/contact.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
