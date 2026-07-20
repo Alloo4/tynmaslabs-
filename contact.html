@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{if(localStorage.getItem('tynmas-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0A0D12">
 <title>Contact &amp; Request a Quote | Tynmas Labs</title>
 <meta name="description" content="Request a 3D printing quote or get in touch with Tynmas Labs — WhatsApp, email, workshop location and business hours in Nairobi, Kenya.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232563EB'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 <header class="site-header">
   <div class="nav-row">
     <a href="index.html" class="brand">
-      <span class="brand-mark">T</span>
+      <span class="brand-mark"><img src="assets/img/favicon.png" alt="Tynmas Labs"></span>
       <span class="brand-name">TYNMAS LABS</span>
     </a>
     <nav class="nav-links">
@@ -28,7 +29,8 @@
     </nav>
     <div class="nav-actions">
       <a href="shop.html" class="btn btn-outline btn-sm"><span>Shop Now</span></a>
-      <a href="https://wa.me/254700000000" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><span>WhatsApp</span></a>
+      <a href="https://wa.me/254799315334" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><span>WhatsApp</span></a>
+      <button class="theme-toggle" aria-label="Toggle light/dark theme"><span class="icon-sun">☀</span><span class="icon-moon">☾</span></button>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </div>
@@ -38,7 +40,8 @@
     <a href="services.html">Services</a>
     <a href="contact.html" class="active">Contact</a>
     <a href="shop.html" class="btn btn-outline">Shop Now</a>
-    <a href="https://wa.me/254700000000" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
+    <a href="https://wa.me/254799315334" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
+    <button class="theme-toggle" aria-label="Toggle light/dark theme"><span class="icon-sun">☀</span><span class="icon-moon">☾</span></button>
   </div>
 </header>
 
@@ -141,7 +144,7 @@
 
     <!-- DETAILS -->
     <div class="contact-col">
-      <a href="https://wa.me/254700000000" target="_blank" rel="noopener" class="whatsapp-cta">
+      <a href="https://wa.me/254799315334" target="_blank" rel="noopener" class="whatsapp-cta">
         <div class="whatsapp-cta-icon">💬</div>
         <div>
           <div class="whatsapp-cta-title">Chat on WhatsApp</div>
@@ -153,15 +156,15 @@
         <div class="info-title">Reach us</div>
         <div class="info-row">
           <div class="info-icon">✆</div>
-          <div><div class="info-sub">Phone / WhatsApp</div><div class="info-main">+254 7XX XXX XXX</div></div>
+          <div><div class="info-sub">Phone / WhatsApp</div><div class="info-main">0799 315 334</div></div>
         </div>
         <div class="info-row">
           <div class="info-icon">✉</div>
-          <div><div class="info-sub">Email</div><a href="mailto:hello@tynmaslabs.com" class="info-main">hello@tynmaslabs.com</a></div>
+          <div><div class="info-sub">Email</div><a href="mailto:info@tynmaslabs.com" class="info-main">info@tynmaslabs.com</a></div>
         </div>
         <div class="info-row">
           <div class="info-icon">📍</div>
-          <div><div class="info-sub">Location</div><div class="info-main">Nairobi, Kenya</div></div>
+          <div><div class="info-sub">Location</div><div class="info-main">124 Manyani East Road, Nairobi</div></div>
         </div>
         <div class="info-row">
           <div class="info-icon">◎</div>
@@ -178,7 +181,7 @@
 
       <div class="map-slot">
         <span class="pin">📍</span>
-        <span>Workshop location — Nairobi, Kenya</span>
+        <span>124 Manyani East Road, Nairobi</span>
       </div>
     </div>
   </section>
@@ -199,7 +202,7 @@
 <footer class="site-footer">
   <div class="footer-simple">
     <a href="index.html" class="brand">
-      <span class="brand-mark" style="width:26px;height:26px;font-size:13px">T</span>
+      <span class="brand-mark" style="width:26px;height:26px"><img src="assets/img/favicon.png" alt="Tynmas Labs"></span>
       <span class="brand-name" style="font-size:14px">TYNMAS LABS</span>
     </a>
     <div style="font-size:12.5px;color:var(--muted-2)">© <span id="year"></span> Tynmas Labs · Made in Nairobi, Kenya</div>
@@ -211,7 +214,9 @@
   </div>
 </footer>
 
+<script src="assets/js/config.js"></script>
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/theme.js"></script>
 <script src="assets/js/contact.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>

@@ -10,3 +10,11 @@ desktop.ini
 # Dependencies (if a build step is ever added)
 node_modules/
 dist/
+
+# Vercel
+.vercel/
+.env.local
+.env*.local
+
+.vercel
+.env*

@@ -1,0 +1,11 @@
+[
+  { "id": "sp1", "cat": "Desk & Office", "name": "Modular Desk Organizer", "price": 1800, "low": false, "swatches": ["#2563EB", "#161B22", "#D9DDE3"], "desc": "A snap-together desk organizer for pens, cards and cables. Configure the modules to fit your setup." },
+  { "id": "sp2", "cat": "Desk & Office", "name": "Cable Management Clip Set", "price": 600, "low": false, "swatches": ["#161B22", "#2563EB"], "desc": "A set of adhesive-backed clips that keep charging and desk cables tidy and in place." },
+  { "id": "sp3", "cat": "Home Decor", "name": "Geometric Planter", "price": 1200, "low": false, "swatches": ["#D9DDE3", "#161B22", "#2563EB"], "desc": "A faceted planter with a drainage insert — great for succulents and small indoor plants." },
+  { "id": "sp4", "cat": "Home Decor", "name": "Layered Wall Art Piece", "price": 2400, "low": true, "swatches": ["#2563EB", "#0A0D12"], "desc": "A multi-layer geometric wall panel that adds depth and a modern accent to any room." },
+  { "id": "sp5", "cat": "Entertainment", "name": "Gaming Dice Tray", "price": 950, "low": false, "swatches": ["#161B22", "#2563EB", "#D9DDE3"], "desc": "A felt-free rolling tray with raised edges — keeps your dice on the table, not the floor." },
+  { "id": "sp6", "cat": "Personalised Gifts", "name": "Custom Name Keychain", "price": 450, "low": false, "swatches": ["#2563EB", "#D9DDE3", "#161B22"], "desc": "Personalize with any name, word or small logo. A quick, affordable custom gift." },
+  { "id": "sp7", "cat": "Accessories", "name": "Adjustable Phone Stand", "price": 850, "low": false, "swatches": ["#161B22", "#2563EB"], "desc": "A sturdy multi-angle stand for phones and small tablets — folds flat to travel." },
+  { "id": "sp8", "cat": "Business Essentials", "name": "Business Card Holder", "price": 700, "low": true, "swatches": ["#0A0D12", "#2563EB", "#D9DDE3"], "desc": "A clean desk-top card holder that keeps your business cards presentable and within reach." },
+  { "id": "sp9", "cat": "Custom Prints", "name": "Custom 3D Print (Made to Order)", "price": 1000, "priceLabel": "From KES 1,000", "low": false, "swatches": ["#2563EB", "#161B22", "#D9DDE3"], "desc": "Upload your own file and we'll print it to order in your chosen material and color." }
+]
