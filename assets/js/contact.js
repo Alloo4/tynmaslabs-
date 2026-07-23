@@ -100,7 +100,7 @@
       let fileUrl = '';
       let fileName = '';
       if (state.hasFile && state.file) {
-        const { upload } = await import('https://esm.sh/@vercel/blob/client');
+        const { upload } = await import('https://esm.sh/@vercel/blob@2.6.1/client');
         const blob = await upload(state.file.name, state.file, {
           access: 'public',
           handleUploadUrl: '/api/blob-upload',
