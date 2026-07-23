@@ -106,7 +106,7 @@
         // error because the polyfilled undici fetch doesn't behave like a real browser fetch.
         const { upload } = await import('https://esm.sh/@vercel/blob@2.6.1/client?alias=undici:@vercel/blob/dist/undici-browser.js,crypto:@vercel/blob/dist/crypto-browser.js');
         const blob = await upload(state.file.name, state.file, {
-          access: 'public',
+          access: 'private',
           handleUploadUrl: '/api/blob-upload',
         });
         fileUrl = blob.url;
@@ -127,7 +127,7 @@
           timeline: timelineSelect.value,
           message: messageInput.value.trim() || 'none',
           file_name: fileName || 'No file attached',
-          file_url: fileUrl || 'n/a',
+          file_url: fileUrl ? fileUrl + ' (private store — open via Vercel dashboard: Storage > tynmaslabs-blob > Browser > paste this URL > Lookup)' : 'n/a',
           estimate: state.hasFile ? (estPrice.textContent + ' · ' + estWeight.textContent) : 'n/a',
         }),
       });
