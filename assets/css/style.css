@@ -23,6 +23,7 @@
   --danger: #D92D2D;
   --warning: #F97316;
   --header-bg: rgba(255, 255, 255, .85);
+  --shadow-color: rgba(5, 16, 66, .16);
   --radius-sm: 9px;
   --radius-md: 11px;
   --radius-lg: 15px;
@@ -52,6 +53,7 @@
   --danger: #F58A8A;
   --warning: #F97316;
   --header-bg: rgba(5, 7, 15, .85);
+  --shadow-color: rgba(0, 0, 0, .5);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,7 +78,7 @@ h1, h2, h3, h4 {
 a { color: var(--blue); text-decoration: none; }
 a:hover { color: var(--blue-hover); }
 
-::selection { background: rgba(37, 99, 235, .35); }
+::selection { background: rgba(65, 93, 221, .35); }
 
 img { max-width: 100%; display: block; }
 
@@ -145,7 +147,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .btn-primary {
   background: var(--blue);
   color: #fff;
-  box-shadow: 0 10px 28px rgba(37, 99, 235, .3);
+  box-shadow: 0 10px 28px rgba(65, 93, 221, .3);
 }
 .btn-primary:hover { background: var(--blue-hover); color: #fff; }
 
@@ -367,7 +369,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 @media (hover: hover) {
   .card:hover, .product-card:hover, .step-card:hover, .service-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(37, 99, 235, .35);
+    border-color: rgba(65, 93, 221, .35);
   }
 }
 
@@ -380,7 +382,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: rgba(37, 99, 235, .12);
+  background: rgba(65, 93, 221, .12);
   color: var(--blue-light);
   display: flex;
   align-items: center;
@@ -400,7 +402,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 30% 20%, rgba(37, 99, 235, .16), transparent 60%),
+    radial-gradient(circle at 30% 20%, rgba(65, 93, 221, .16), transparent 60%),
     repeating-linear-gradient(135deg, rgba(217, 221, 227, .04) 0 2px, transparent 2px 14px);
   display: flex;
   align-items: center;
@@ -432,8 +434,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: rgba(37, 99, 235, .1);
-  border: 1px solid rgba(37, 99, 235, .3);
+  background: rgba(65, 93, 221, .1);
+  border: 1px solid rgba(65, 93, 221, .3);
   color: var(--blue-light);
   font-size: 11.5px;
   font-weight: 600;
@@ -473,7 +475,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .hero-glow {
   position: absolute;
   inset: -30px;
-  background: radial-gradient(circle at 60% 40%, rgba(37, 99, 235, .25), transparent 65%);
+  background: radial-gradient(circle at 60% 40%, rgba(65, 93, 221, .25), transparent 65%);
   filter: blur(12px);
 }
 .hero-frame {
@@ -481,7 +483,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--border-3);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, .55);
+  box-shadow: 0 30px 70px var(--shadow-color);
   aspect-ratio: 4 / 5;
 }
 .hero-chip {
@@ -495,13 +497,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
+  box-shadow: 0 16px 40px var(--shadow-color);
 }
 .hero-chip-icon {
   width: 36px;
   height: 36px;
   border-radius: 9px;
-  background: rgba(37, 99, 235, .16);
+  background: rgba(65, 93, 221, .16);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -628,16 +630,16 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   text-align: center;
   margin-bottom: 22px;
   transition: all .15s;
-  border: 1.5px dashed rgba(37, 99, 235, .4);
-  background: rgba(37, 99, 235, .04);
+  border: 1.5px dashed rgba(65, 93, 221, .4);
+  background: rgba(65, 93, 221, .04);
 }
-.dropzone.drag { border-color: var(--blue); background: rgba(37, 99, 235, .12); }
-.dropzone.filled { border-color: rgba(37, 99, 235, .6); background: rgba(37, 99, 235, .06); }
+.dropzone.drag { border-color: var(--blue); background: rgba(65, 93, 221, .12); }
+.dropzone.filled { border-color: rgba(65, 93, 221, .6); background: rgba(65, 93, 221, .06); }
 .dropzone-icon {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(37, 99, 235, .12);
+  background: rgba(65, 93, 221, .12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -645,7 +647,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-size: 22px;
   color: var(--blue-light);
 }
-.dropzone.filled .dropzone-icon { background: rgba(37, 99, 235, .2); }
+.dropzone.filled .dropzone-icon { background: rgba(65, 93, 221, .2); }
 .dropzone-name { font-weight: 600; font-size: 15px; color: var(--heading); margin-bottom: 4px; }
 .dropzone-hint { font-size: 12.5px; color: var(--muted-2); text-transform: none; }
 
@@ -880,9 +882,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border: 1px solid var(--border-3);
 }
 .mat-chip.active {
-  background: rgba(37, 99, 235, .14);
+  background: rgba(65, 93, 221, .14);
   color: var(--blue-light);
-  border-color: rgba(37, 99, 235, .5);
+  border-color: rgba(65, 93, 221, .5);
 }
 .qty-stepper {
   display: flex;
@@ -982,7 +984,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .checkout-summary strong { color: var(--heading); font-family: var(--font-mono); }
 .checkout-status { text-align: center; padding: 34px 10px; }
 .checkout-status .icon { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
-.checkout-status.success .icon { background: rgba(37, 99, 235, .16); color: var(--blue-light); }
+.checkout-status.success .icon { background: rgba(65, 93, 221, .16); color: var(--blue-light); }
 .checkout-status.error .icon { background: rgba(245, 138, 138, .16); color: var(--danger); }
 .checkout-status h3 { font-size: 20px; margin-bottom: 8px; }
 .checkout-status p { font-size: 14px; color: var(--muted); text-transform: none; margin-bottom: 20px; }
@@ -994,13 +996,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   transform: translateX(-50%);
   z-index: 120;
   background: var(--card);
-  border: 1px solid rgba(37, 99, 235, .4);
+  border: 1px solid rgba(65, 93, 221, .4);
   border-radius: 12px;
   padding: 14px 22px;
   display: none;
   align-items: center;
   gap: 11px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
+  box-shadow: 0 16px 40px var(--shadow-color);
 }
 .toast.show { display: flex; }
 .toast .check { color: var(--blue-light); font-size: 16px; }
@@ -1019,7 +1021,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 50px;
   height: 50px;
   border-radius: 13px;
-  background: rgba(37, 99, 235, .12);
+  background: rgba(65, 93, 221, .12);
   color: var(--blue-light);
   display: flex;
   align-items: center;
@@ -1076,7 +1078,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(37, 99, 235, .16);
+  background: rgba(65, 93, 221, .16);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1091,8 +1093,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   display: flex;
   align-items: center;
   gap: 13px;
-  background: rgba(37, 99, 235, .1);
-  border: 1px solid rgba(37, 99, 235, .35);
+  background: rgba(65, 93, 221, .1);
+  border: 1px solid rgba(65, 93, 221, .35);
   border-radius: 14px;
   padding: 18px 20px;
 }
@@ -1100,7 +1102,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(37, 99, 235, .2);
+  background: rgba(65, 93, 221, .2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1127,7 +1129,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: rgba(37, 99, 235, .12);
+  background: rgba(65, 93, 221, .12);
   display: flex;
   align-items: center;
   justify-content: center;
