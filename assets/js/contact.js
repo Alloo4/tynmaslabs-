@@ -100,7 +100,11 @@
       let fileUrl = '';
       let fileName = '';
       if (state.hasFile && state.file) {
-        const { upload } = await import('https://esm.sh/@vercel/blob@2.6.1/client');
+        // esm.sh doesn't honor @vercel/blob's package.json "browser" field (which swaps the
+        // Node-only `undici`/`crypto` imports for browser-safe ones using the real global
+        // fetch) unless told to explicitly via ?alias — without it, uploads fail with a CORS
+        // error because the polyfilled undici fetch doesn't behave like a real browser fetch.
+        const { upload } = await import('https://esm.sh/@vercel/blob@2.6.1/client?alias=undici:@vercel/blob/dist/undici-browser.js,crypto:@vercel/blob/dist/crypto-browser.js');
         const blob = await upload(state.file.name, state.file, {
           access: 'public',
           handleUploadUrl: '/api/blob-upload',
