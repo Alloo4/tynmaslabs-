@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{if(localStorage.getItem('tynmas-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script src="assets/js/theme-init.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#051042">
 <title>Contact &amp; Request a Quote | Tynmas Labs</title>
 <meta name="description" content="Request a 3D printing quote or get in touch with Tynmas Labs — WhatsApp, email, workshop location and business hours in Nairobi, Kenya.">
+<link rel="canonical" href="https://tynmaslabs.vercel.app/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tynmas Labs">
+<meta property="og:url" content="https://tynmaslabs.vercel.app/contact.html">
+<meta property="og:title" content="Contact &amp; Request a Quote | Tynmas Labs">
+<meta property="og:description" content="Request a 3D printing quote or get in touch with Tynmas Labs — WhatsApp, email, workshop location and business hours in Nairobi, Kenya.">
+<meta property="og:image" content="https://tynmaslabs.vercel.app/assets/img/favicon.png">
+<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Questrial&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -34,7 +42,7 @@
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </div>
-  <div class="mobile-nav">
+  <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="services.html">Services</a>
@@ -200,24 +208,39 @@
 </main>
 
 <footer class="site-footer">
-  <div class="footer-simple">
-    <a href="index.html" class="brand">
-      <span class="brand-mark" style="width:26px;height:26px"><img src="assets/img/favicon.png" alt="Tynmas Labs"></span>
-      <span class="brand-name" style="font-size:14px">TYNMAS LABS</span>
-    </a>
-    <div style="font-size:12.5px;color:var(--muted-2)">© <span id="year"></span> Tynmas Labs · Made in Nairobi, Kenya</div>
-    <div class="footer-simple-links">
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="services.html">Services</a>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span class="brand-mark" style="width:28px;height:28px"><img src="assets/img/favicon.png" alt="Tynmas Labs"></span>
+        <span class="brand-name" style="font-size:15px">TYNMAS LABS</span>
+      </div>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.6;max-width:290px" class="text-plain">High-quality 3D printing, design and custom parts. Made in Nairobi, Kenya.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in touch</div>
+      <div class="footer-links">
+        <a href="https://wa.me/254799315334" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:info@tynmaslabs.com">info@tynmaslabs.com</a>
+        <a href="https://www.instagram.com/tynmas3d" target="_blank" rel="noopener">@tynmas3d</a>
+      </div>
     </div>
   </div>
+  <div class="footer-bottom">© <span id="year"></span> Tynmas Labs · Made in Nairobi, Kenya</div>
 </footer>
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/contact.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/year.js"></script>
 </body>
 </html>

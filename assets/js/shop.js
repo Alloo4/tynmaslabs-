@@ -17,6 +17,38 @@
 
   const fmtKES = (n) => 'KES ' + Math.round(n).toLocaleString('en-US');
 
+  // ---------- focus trap (shared by the quick-view modal and cart drawer) ----------
+  let lastFocusedEl = null;
+  function getFocusable(container) {
+    return Array.from(container.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter((el) => el.offsetParent !== null);
+  }
+  function openDialog(overlay, container) {
+    lastFocusedEl = document.activeElement;
+    overlay.classList.add('open');
+    const focusables = getFocusable(container);
+    (focusables[0] || container).focus();
+  }
+  function closeDialog(overlay) {
+    overlay.classList.remove('open');
+    if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') lastFocusedEl.focus();
+  }
+  function trapTabKey(e, container) {
+    if (e.key !== 'Tab') return;
+    const focusables = getFocusable(container);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   const chipsEl = document.getElementById('categoryChips');
   const gridEl = document.getElementById('productGrid');
   const noResultsEl = document.getElementById('noResults');
@@ -134,10 +166,10 @@
     state.color = 0;
     state.mat = 0;
     renderModal();
-    modalOverlay.classList.add('open');
+    openDialog(modalOverlay, modalBox);
   }
   function closeModal() {
-    modalOverlay.classList.remove('open');
+    closeDialog(modalOverlay);
   }
 
   function renderModal() {
@@ -176,9 +208,13 @@
   modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
   modalBox.addEventListener('click', (e) => e.stopPropagation());
   document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    closeModal();
-    closeCart();
+    if (e.key === 'Escape') {
+      closeModal();
+      closeCart();
+      return;
+    }
+    if (modalOverlay.classList.contains('open')) trapTabKey(e, modalBox);
+    else if (cartOverlay.classList.contains('open')) trapTabKey(e, cartBox);
   });
 
   document.getElementById('qtyDec').addEventListener('click', () => {
@@ -211,10 +247,10 @@
   function openCart() {
     state.drawer = 'cart';
     renderCart();
-    cartOverlay.classList.add('open');
+    openDialog(cartOverlay, cartBox);
   }
   function closeCart() {
-    cartOverlay.classList.remove('open');
+    closeDialog(cartOverlay);
   }
   document.getElementById('cartBtn').addEventListener('click', openCart);
   cartOverlay.addEventListener('click', (e) => { if (e.target === cartOverlay) closeCart(); });

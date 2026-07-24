@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{if(localStorage.getItem('tynmas-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script src="assets/js/theme-init.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#051042">
 <title>Tynmas Labs | 3D Printing, Design &amp; Custom Parts in Nairobi</title>
 <meta name="description" content="Tynmas Labs designs, prints and delivers high-quality 3D-printed products and custom parts in Nairobi, Kenya. Shop ready-made items or request a quote.">
+<link rel="canonical" href="https://tynmaslabs.vercel.app/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tynmas Labs">
+<meta property="og:url" content="https://tynmaslabs.vercel.app/index.html">
+<meta property="og:title" content="Tynmas Labs | 3D Printing, Design &amp; Custom Parts in Nairobi">
+<meta property="og:description" content="Tynmas Labs designs, prints and delivers high-quality 3D-printed products and custom parts in Nairobi, Kenya. Shop ready-made items or request a quote.">
+<meta property="og:image" content="https://tynmaslabs.vercel.app/assets/img/favicon.png">
+<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Questrial&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -34,7 +42,7 @@
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </div>
-  <div class="mobile-nav">
+  <div class="mobile-nav" id="mobileNav">
     <a href="index.html" class="active">Home</a>
     <a href="shop.html">Shop</a>
     <a href="services.html">Services</a>
@@ -269,6 +277,6 @@
 
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/theme.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/year.js"></script>
 </body>
 </html>
