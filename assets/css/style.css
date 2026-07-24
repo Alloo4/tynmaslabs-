@@ -1,7 +1,12 @@
 /* ==========================================================================
    Tynmas Labs — shared design system
    Precision-manufacturing identity: deep navy + royal indigo on white.
-   Questrial (display) / DM Sans (body) / JetBrains Mono (numerics).
+   Questrial (display) / DM Sans (body + numerics).
+
+   This file is the readable source. The site actually loads
+   style.min.css (generated with `npx clean-css-cli -o
+   assets/css/style.min.css assets/css/style.css`) — re-run that
+   after editing this file.
    ========================================================================== */
 
 :root {
@@ -12,7 +17,7 @@
   --heading: #000000;
   --heading-alt: #17181B;
   --muted: #6E6E6E;
-  --muted-2: #737373;
+  --muted-2: #6B6B6B;
   --blue: #051042;
   --blue-light: #415DDD;
   --blue-hover: #0A1B5E;
