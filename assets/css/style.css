@@ -418,9 +418,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .img-slot span { position: relative; z-index: 1; }
 
 .product-photo {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 14px;
+  box-sizing: border-box;
 }
 
 /* ---------- hero ---------- */
@@ -762,7 +765,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   cursor: pointer;
   aspect-ratio: 1 / 1;
   position: relative;
-  background: var(--bg-alt);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(65, 93, 221, .16), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(217, 221, 227, .04) 0 2px, transparent 2px 14px),
+    var(--bg-alt);
 }
 .product-tag {
   position: absolute;
@@ -844,7 +851,15 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.modal-media { position: relative; background: var(--bg-alt); min-height: 380px; }
+.modal-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(65, 93, 221, .16), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(217, 221, 227, .04) 0 2px, transparent 2px 14px),
+    var(--bg-alt);
+}
 .modal-body { padding: 34px; }
 .modal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
 .modal-close { cursor: pointer; font-size: 20px; color: var(--muted-2); line-height: 1; background: none; border: none; }
