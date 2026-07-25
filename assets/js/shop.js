@@ -1,6 +1,6 @@
 // Tynmas Labs — Shop page logic (filtering, search, quick-view modal, cart, Paystack checkout)
 (() => {
-  const CATEGORIES = ['All', 'Desk & Office', 'Home Decor', 'Entertainment', 'Personalised Gifts', 'Accessories', 'Business Essentials', 'Custom Prints'];
+  const CATEGORIES = ['All', 'Home Decor', 'Accessories', 'Entertainment', 'Desk & Office'];
 
   let PRODUCTS = [];
 
@@ -92,6 +92,11 @@
     });
   }
 
+  function productPhotoHtml(p, altSuffix) {
+    if (p.photo) return `<img class="product-photo" src="${p.photo}" alt="${p.name}${altSuffix || ''}" loading="lazy">`;
+    return `<div class="img-slot"><span>Product photo</span></div>`;
+  }
+
   function filteredProducts() {
     const q = state.query.trim().toLowerCase();
     return PRODUCTS.filter((p) => {
@@ -112,16 +117,17 @@
       card.className = 'product-card';
       card.innerHTML = `
         <div class="product-thumb" data-open="${p.id}">
-          <div class="img-slot"><span>Product photo</span></div>
+          ${productPhotoHtml(p)}
           ${p.low ? '<span class="product-tag">Low stock</span>' : ''}
           <span class="wishlist-btn" title="Wishlist — coming soon">♡</span>
         </div>
         <div class="product-body">
           <div class="product-cat">${p.cat}</div>
           <div class="product-name" data-open="${p.id}">${p.name}</div>
+          ${p.swatches && p.swatches.length ? `
           <div class="swatch-row">
             ${p.swatches.map((sw) => `<span class="swatch" style="background:${sw}"></span>`).join('')}
-          </div>
+          </div>` : ''}
           <div class="product-foot">
             <span class="product-price">${p.priceLabel || fmtKES(p.price)}</span>
             <button type="button" class="btn btn-primary btn-xs" data-quickadd="${p.id}">Add</button>
@@ -152,6 +158,7 @@
   // ---------- quick-view modal ----------
   const modalOverlay = document.getElementById('modalOverlay');
   const modalBox = document.getElementById('modalBox');
+  const modalMedia = document.getElementById('modalMedia');
   const modalCat = document.getElementById('modalCat');
   const modalName = document.getElementById('modalName');
   const modalPrice = document.getElementById('modalPrice');
@@ -175,6 +182,7 @@
   function renderModal() {
     const p = PRODUCTS.find((x) => x.id === state.activeId) || PRODUCTS[0];
     if (!p) return;
+    modalMedia.innerHTML = productPhotoHtml(p);
     modalCat.textContent = p.cat;
     modalName.textContent = p.name;
     modalPrice.textContent = p.priceLabel || fmtKES(p.price);
