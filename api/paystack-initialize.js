@@ -53,7 +53,7 @@ module.exports = async (req, res) => {
         email: customer.email,
         amount: Math.round(amountKES * 100), // KES lowest unit (cents)
         currency: 'KES',
-        callback_url: `${origin}/shop.html`,
+        callback_url: `${origin}/shop`,
         metadata: {
           customer_name: customer.name,
           customer_phone: customer.phone || '',

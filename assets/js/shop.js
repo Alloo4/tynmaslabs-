@@ -296,7 +296,7 @@
         <div class="cart-subtotal-row"><span>Subtotal</span><span>${fmtKES(cart.subtotal())}</span></div>
         <div class="cart-actions">
           <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
-          <a href="shop.html" class="btn btn-outline" style="text-decoration:none" id="continueShoppingBtn">Continue Shopping</a>
+          <a href="/shop" class="btn btn-outline" style="text-decoration:none" id="continueShoppingBtn">Continue Shopping</a>
         </div>
       ` : `<div class="cart-empty">Your cart is empty. Add a product to get started.</div>`}
     `;
@@ -427,7 +427,7 @@
     `;
     document.getElementById('statusCloseBtn').addEventListener('click', () => {
       closeCart();
-      history.replaceState(null, '', 'shop.html');
+      history.replaceState(null, '', '/shop');
     });
   }
 

@@ -17,7 +17,7 @@
     .then((data) => {
       const featured = data.filter((p) => p.featured).slice(0, 4);
       gridEl.innerHTML = featured.map((p) => `
-        <a href="shop.html" class="product-card" style="color:inherit">
+        <a href="/shop" class="product-card" style="color:inherit">
           <div class="product-thumb">${photoHtml(p)}</div>
           <div class="product-body">
             <div class="product-cat">${p.cat}</div>
