@@ -498,6 +498,26 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   text-transform: none;
 }
 .hero-ctas { display: flex; gap: 13px; flex-wrap: wrap; }
+.brand-tagline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.brand-tagline .dot { color: var(--blue-light); font-size: 8px; }
+.brand-tagline--hero { margin-top: 26px; animation: taglineIn .6s ease .2s both; }
+@keyframes taglineIn {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-tagline--hero { animation: none; }
+}
 
 .hero-visual { position: relative; }
 .hero-glow {
@@ -1068,24 +1088,23 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   background: var(--card);
   border: 1px solid var(--border-2);
   border-radius: 18px;
-  padding: 30px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-.service-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 13px;
-  background: rgba(65, 93, 221, .12);
-  color: var(--blue-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+.service-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(65, 93, 221, .16), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(217, 221, 227, .04) 0 2px, transparent 2px 14px),
+    var(--bg-alt);
 }
+.service-photo img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-body { padding: 30px; display: flex; flex-direction: column; flex: 1; }
 .service-card h3 { font-size: 19px; margin-bottom: 10px; letter-spacing: 0; }
-.service-card > p { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; text-transform: none; }
+.service-body > p { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; text-transform: none; }
 .benefit-label {
   font-family: var(--font-display);
   font-size: 11px;
