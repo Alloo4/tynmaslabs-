@@ -3,8 +3,6 @@ window.TynmasCart = (() => {
   const KEY = 'tynmas_cart';
   const listeners = [];
 
-  function lineKey(id, color, mat) { return id + '|' + color + '|' + mat; }
-
   function read() {
     try {
       const raw = localStorage.getItem(KEY);
@@ -22,8 +20,7 @@ window.TynmasCart = (() => {
 
   function add(item) {
     const items = read();
-    const key = lineKey(item.id, item.color, item.mat);
-    const existing = items.find((x) => lineKey(x.id, x.color, x.mat) === key);
+    const existing = items.find((x) => x.id === item.id);
     if (existing) {
       existing.qty += item.qty;
     } else {
@@ -32,22 +29,20 @@ window.TynmasCart = (() => {
     write(items);
   }
 
-  function setQty(id, color, mat, qty) {
+  function setQty(id, qty) {
     const items = read();
-    const key = lineKey(id, color, mat);
-    const line = items.find((x) => lineKey(x.id, x.color, x.mat) === key);
+    const line = items.find((x) => x.id === id);
     if (!line) return;
     if (qty <= 0) {
-      write(items.filter((x) => lineKey(x.id, x.color, x.mat) !== key));
+      write(items.filter((x) => x.id !== id));
     } else {
       line.qty = Math.min(99, qty);
       write(items);
     }
   }
 
-  function remove(id, color, mat) {
-    const key = lineKey(id, color, mat);
-    write(read().filter((x) => lineKey(x.id, x.color, x.mat) !== key));
+  function remove(id) {
+    write(read().filter((x) => x.id !== id));
   }
 
   function clear() { write([]); }

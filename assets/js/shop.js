@@ -4,15 +4,7 @@
 
   let PRODUCTS = [];
 
-  const COLORS = [
-    { label: 'Tynmas Blue', hex: '#2563EB' },
-    { label: 'Graphite', hex: '#161B22' },
-    { label: 'White', hex: '#D9DDE3' },
-    { label: 'Black', hex: '#0A0D12' },
-  ];
-  const MATERIALS = ['PLA', 'PETG', 'ABS'];
-
-  const state = { cat: 'All', query: '', activeId: null, qty: 1, color: 0, mat: 0, drawer: 'cart' };
+  const state = { cat: 'All', query: '', activeId: null, qty: 1, drawer: 'cart' };
   const cart = window.TynmasCart;
 
   const fmtKES = (n) => 'KES ' + Math.round(n).toLocaleString('en-US');
@@ -145,7 +137,7 @@
         e.stopPropagation();
         const p = PRODUCTS.find((x) => x.id === el.getAttribute('data-quickadd'));
         if (!p) return;
-        addToCart({ id: p.id, name: p.name, price: p.price, priceLabel: p.priceLabel || null, qty: 1, color: null, mat: null });
+        addToCart({ id: p.id, name: p.name, price: p.price, priceLabel: p.priceLabel || null, qty: 1 });
       });
     });
   }
@@ -163,15 +155,11 @@
   const modalName = document.getElementById('modalName');
   const modalPrice = document.getElementById('modalPrice');
   const modalDesc = document.getElementById('modalDesc');
-  const modalColors = document.getElementById('modalColors');
-  const modalMaterials = document.getElementById('modalMaterials');
   const qtyValueEl = document.getElementById('qtyValue');
 
   function openModal(id) {
     state.activeId = id;
     state.qty = 1;
-    state.color = 0;
-    state.mat = 0;
     renderModal();
     openDialog(modalOverlay, modalBox);
   }
@@ -188,28 +176,6 @@
     modalPrice.textContent = p.priceLabel || fmtKES(p.price);
     modalDesc.textContent = p.desc;
     qtyValueEl.textContent = state.qty;
-
-    modalColors.innerHTML = COLORS.map((c, i) => `
-      <button type="button" class="color-swatch-btn${i === state.color ? ' active' : ''}" data-color="${i}" title="${c.label}">
-        <span style="background:${c.hex}"></span>
-      </button>
-    `).join('');
-    modalColors.querySelectorAll('[data-color]').forEach((el) => {
-      el.addEventListener('click', () => {
-        state.color = +el.getAttribute('data-color');
-        renderModal();
-      });
-    });
-
-    modalMaterials.innerHTML = MATERIALS.map((m, i) => `
-      <div class="mat-chip${i === state.mat ? ' active' : ''}" data-mat="${i}">${m}</div>
-    `).join('');
-    modalMaterials.querySelectorAll('[data-mat]').forEach((el) => {
-      el.addEventListener('click', () => {
-        state.mat = +el.getAttribute('data-mat');
-        renderModal();
-      });
-    });
   }
 
   document.getElementById('modalClose').addEventListener('click', closeModal);
@@ -242,8 +208,6 @@
       price: p.price,
       priceLabel: p.priceLabel || null,
       qty: state.qty,
-      color: COLORS[state.color].label,
-      mat: MATERIALS[state.mat],
     });
     closeModal();
   });
@@ -264,17 +228,12 @@
   cartOverlay.addEventListener('click', (e) => { if (e.target === cartOverlay) closeCart(); });
   cartBox.addEventListener('click', (e) => e.stopPropagation());
 
-  function lineLabel(item) {
-    return [item.color, item.mat].filter(Boolean).join(' · ');
-  }
-
   function renderCartList() {
     const items = cart.getItems();
     const rows = items.map((item) => `
-      <div class="cart-line" data-line="${item.id}|${item.color}|${item.mat}">
+      <div class="cart-line" data-line="${item.id}">
         <div class="cart-line-info">
           <div class="cart-line-name">${item.name}</div>
-          ${lineLabel(item) ? `<div class="cart-line-meta">${lineLabel(item)}</div>` : ''}
           <div class="cart-line-price">${item.priceLabel || fmtKES(item.price)} × ${item.qty}</div>
         </div>
         <div class="cart-line-qty">
@@ -306,22 +265,21 @@
     if (continueBtn) continueBtn.addEventListener('click', (e) => { e.preventDefault(); closeCart(); });
 
     cartBox.querySelectorAll('[data-line]').forEach((row) => {
-      const [id, color, mat] = row.getAttribute('data-line').split('|');
-      const norm = (v) => (v === 'null' ? null : v);
+      const id = row.getAttribute('data-line');
       row.querySelector('[data-inc]').addEventListener('click', () => {
-        const item = cart.getItems().find((x) => x.id === id && x.color === norm(color) && x.mat === norm(mat));
-        cart.setQty(id, norm(color), norm(mat), item.qty + 1);
+        const item = cart.getItems().find((x) => x.id === id);
+        cart.setQty(id, item.qty + 1);
         updateCartCount();
         renderCart();
       });
       row.querySelector('[data-dec]').addEventListener('click', () => {
-        const item = cart.getItems().find((x) => x.id === id && x.color === norm(color) && x.mat === norm(mat));
-        cart.setQty(id, norm(color), norm(mat), item.qty - 1);
+        const item = cart.getItems().find((x) => x.id === id);
+        cart.setQty(id, item.qty - 1);
         updateCartCount();
         renderCart();
       });
       row.querySelector('[data-remove]').addEventListener('click', () => {
-        cart.remove(id, norm(color), norm(mat));
+        cart.remove(id);
         updateCartCount();
         renderCart();
       });
@@ -400,7 +358,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            items: cart.getItems().map((it) => ({ id: it.id, qty: it.qty, color: it.color, mat: it.mat })),
+            items: cart.getItems().map((it) => ({ id: it.id, qty: it.qty })),
             customer: { name, email, phone, delivery, address },
           }),
         });

@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
       return;
     }
     amountKES += product.price * qty;
-    lineItems.push({ id: product.id, name: product.name, qty, unitPrice: product.price, color: item.color, mat: item.mat });
+    lineItems.push({ id: product.id, name: product.name, qty, unitPrice: product.price });
   }
 
   const proto = req.headers['x-forwarded-proto'] || 'https';
@@ -53,6 +53,9 @@ module.exports = async (req, res) => {
         email: customer.email,
         amount: Math.round(amountKES * 100), // KES lowest unit (cents)
         currency: 'KES',
+        // Explicitly include mobile_money so M-Pesa always appears as a checkout
+        // option in Kenya, regardless of the channel defaults on the dashboard.
+        channels: ['card', 'mobile_money'],
         callback_url: `${origin}/shop`,
         metadata: {
           customer_name: customer.name,
