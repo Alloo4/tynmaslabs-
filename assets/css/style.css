@@ -459,7 +459,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(5, 7, 15, .58) 0%, rgba(5, 7, 15, .8) 100%);
+  background: linear-gradient(180deg, rgba(5, 7, 15, .3) 0%, rgba(5, 7, 15, .52) 100%);
 }
 .hero-inner {
   position: relative;
@@ -501,11 +501,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   letter-spacing: -.02em;
   margin-bottom: 18px;
   max-width: 900px;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .55);
 }
 .hero p {
   font-size: 18px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, .82);
+  color: rgba(255, 255, 255, .92);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, .5);
   max-width: 540px;
   margin: 0 auto 26px;
   text-transform: none;
@@ -525,7 +527,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: var(--muted-2);
 }
 .brand-tagline .dot { color: var(--blue-light); font-size: 8px; }
-.hero .brand-tagline { color: rgba(255, 255, 255, .75); }
+.hero .brand-tagline { color: rgba(255, 255, 255, .85); text-shadow: 0 1px 10px rgba(0, 0, 0, .5); }
 .brand-tagline--hero { margin-bottom: 14px; animation: taglineIn .6s ease .2s both; }
 @keyframes taglineIn {
   from { opacity: 0; transform: translateX(-14px); }
