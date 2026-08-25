@@ -511,7 +511,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: var(--muted-2);
 }
 .brand-tagline .dot { color: var(--blue-light); font-size: 8px; }
-.brand-tagline--hero { margin-top: 26px; animation: taglineIn .6s ease .2s both; }
+.brand-tagline--hero { margin-bottom: 18px; animation: taglineIn .6s ease .2s both; }
 @keyframes taglineIn {
   from { opacity: 0; transform: translateX(-14px); }
   to { opacity: 1; transform: translateX(0); }
