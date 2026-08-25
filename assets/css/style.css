@@ -86,7 +86,7 @@ body {
 }
 :root[data-theme="dark"] .bg-texture {
   filter: invert(1);
-  opacity: .05;
+  opacity: .14;
 }
 
 h1, h2, h3, h4 {
