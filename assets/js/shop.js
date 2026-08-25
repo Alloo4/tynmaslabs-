@@ -1,6 +1,6 @@
 // Tynmas Labs — Shop page logic (filtering, search, quick-view modal, cart, Paystack checkout)
 (() => {
-  const CATEGORIES = ['All', 'Home Decor', 'Accessories', 'Entertainment', 'Desk & Office'];
+  const CATEGORIES = ['All', 'Home Decor', 'Accessories', 'Desk & Office'];
 
   let PRODUCTS = [];
 
