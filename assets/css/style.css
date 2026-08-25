@@ -453,7 +453,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 /* ---------- hero ---------- */
 .hero {
-  padding: 78px 0 64px;
+  padding: 56px 0 48px;
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   gap: 56px;
@@ -472,7 +472,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   text-transform: uppercase;
   padding: 6px 13px;
   border-radius: 100px;
-  margin-bottom: 26px;
+  margin-bottom: 16px;
 }
 .hero-dot {
   width: 7px;
@@ -488,14 +488,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -.02em;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 .hero p {
   font-size: 18px;
   line-height: 1.6;
   color: var(--muted);
   max-width: 500px;
-  margin-bottom: 34px;
+  margin-bottom: 26px;
   text-transform: none;
 }
 .hero-ctas { display: flex; gap: 13px; flex-wrap: wrap; }
@@ -511,7 +511,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: var(--muted-2);
 }
 .brand-tagline .dot { color: var(--blue-light); font-size: 8px; }
-.brand-tagline--hero { margin-bottom: 18px; animation: taglineIn .6s ease .2s both; }
+.brand-tagline--hero { margin-bottom: 14px; animation: taglineIn .6s ease .2s both; }
 @keyframes taglineIn {
   from { opacity: 0; transform: translateX(-14px); }
   to { opacity: 1; transform: translateX(0); }
@@ -1272,7 +1272,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .nav-toggle { display: flex; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px 26px; }
   .footer-bottom { padding: 0 24px 28px; }
-  .hero { grid-template-columns: 1fr; padding: 40px 0 48px; gap: 40px; }
+  .hero { grid-template-columns: 1fr; padding: 32px 0 40px; gap: 36px; }
   .intro-grid { grid-template-columns: 1fr; gap: 24px; padding-top: 40px; }
   .hero-visual { max-width: 420px; margin: 0 auto; width: 100%; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1300,7 +1300,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .grid-4.grid-products { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .field-row { grid-template-columns: 1fr; }
 
-  .hero { padding: 32px 0 48px; gap: 36px; }
+  .hero { padding: 24px 0 32px; gap: 32px; }
   .hero p { font-size: 16px; }
   .hero-ctas .btn { flex: 1 1 auto; }
   .hero-chip { left: 10px; bottom: -14px; padding: 11px 13px; }
