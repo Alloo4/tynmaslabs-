@@ -319,7 +319,7 @@
           <input type="text" id="ckAddress" placeholder="Street, area, landmark">
         </div>
         <span class="form-error" id="checkoutError" style="display:none">Please add your name and email.</span>
-        <button type="submit" class="btn btn-primary">Pay with Paystack</button>
+        <button type="submit" class="btn btn-primary">Pay with M-Pesa</button>
       </form>
     `;
 
@@ -367,7 +367,7 @@
         window.location.href = data.authorization_url;
       } catch (err) {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Pay with Paystack';
+        submitBtn.textContent = 'Pay with M-Pesa';
         errorEl.textContent = err.message || 'Something went wrong. Please try again.';
         errorEl.style.display = 'inline';
       }

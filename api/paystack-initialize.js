@@ -53,9 +53,9 @@ module.exports = async (req, res) => {
         email: customer.email,
         amount: Math.round(amountKES * 100), // KES lowest unit (cents)
         currency: 'KES',
-        // Explicitly include mobile_money so M-Pesa always appears as a checkout
-        // option in Kenya, regardless of the channel defaults on the dashboard.
-        channels: ['card', 'mobile_money'],
+        // Mobile Money (M-Pesa Paybill) only — card and other channels are
+        // intentionally excluded so customers can only pay via Paybill.
+        channels: ['mobile_money'],
         callback_url: `${origin}/shop`,
         metadata: {
           customer_name: customer.name,
