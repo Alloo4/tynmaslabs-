@@ -289,6 +289,12 @@
     if (checkoutBtn) checkoutBtn.addEventListener('click', () => { state.drawer = 'checkout'; renderCart(); });
   }
 
+  function manualPayWhatsAppUrl() {
+    const lines = cart.getItems().map((it) => `${it.name} x${it.qty}`).join(', ');
+    const msg = `Hi Tynmas Labs! I've paid via M-Pesa Paybill 880100 (Account PAYTYN254) for: ${lines} — Total ${fmtKES(cart.subtotal())}. My M-Pesa confirmation code: `;
+    return 'https://wa.me/254799315334?text=' + encodeURIComponent(msg);
+  }
+
   function renderCheckoutForm() {
     cartBox.innerHTML = `
       <button type="button" class="checkout-back" id="checkoutBack">← Back to cart</button>
@@ -321,6 +327,14 @@
         <span class="form-error" id="checkoutError" style="display:none">Please add your name and email.</span>
         <button type="submit" class="btn btn-primary">Pay with M-Pesa</button>
       </form>
+      <div class="manual-pay">
+        <div class="manual-pay-divider"><span>or pay directly via M-Pesa</span></div>
+        <div class="manual-pay-box">
+          <div class="manual-pay-row"><span>Paybill</span><strong>880100</strong></div>
+          <div class="manual-pay-row"><span>Account</span><strong>PAYTYN254</strong></div>
+        </div>
+        <a href="${manualPayWhatsAppUrl()}" target="_blank" rel="noopener" class="btn btn-outline manual-pay-cta">Sent it? Confirm on WhatsApp</a>
+      </div>
     `;
 
     document.getElementById('checkoutBack').addEventListener('click', () => { state.drawer = 'cart'; renderCart(); });

@@ -1013,6 +1013,33 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .checkout-status h3 { font-size: 20px; margin-bottom: 8px; }
 .checkout-status p { font-size: 14px; color: var(--muted); text-transform: none; margin-bottom: 20px; }
 
+.manual-pay { margin-top: 20px; }
+.manual-pay-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-family: var(--font-display);
+}
+.manual-pay-divider::before, .manual-pay-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-3); }
+.manual-pay-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-3);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.manual-pay-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+.manual-pay-row + .manual-pay-row { margin-top: 8px; }
+.manual-pay-row span { color: var(--muted); }
+.manual-pay-row strong { color: var(--heading); font-family: var(--font-mono); letter-spacing: .03em; font-size: 15px; }
+.manual-pay-cta { display: block; width: 100%; }
+
 .toast {
   position: fixed;
   bottom: 26px;
