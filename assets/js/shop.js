@@ -423,21 +423,10 @@
       if (!res.ok) throw new Error(data.error || 'Could not verify payment.');
 
       if (data.status === 'success') {
+        // The order notification (email + WhatsApp) is sent server-side by
+        // api/paystack-webhook.js, which Paystack calls directly — that fires
+        // reliably even if this page never gets a chance to load.
         renderCartStatus('success', 'Order confirmed!', `Thanks — your payment went through and we've got your order. Reference: ${data.reference}.`);
-        try {
-          await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              access_key: window.TYNMAS_WEB3FORMS_KEY,
-              subject: 'New Tynmas Labs order — ' + data.reference,
-              email: data.customer_email,
-              reference: data.reference,
-              amount_kes: data.amount / 100,
-              order_details: JSON.stringify(data.metadata, null, 2),
-            }),
-          });
-        } catch (e) { /* order still succeeded even if the notification email fails */ }
         cart.clear();
         updateCartCount();
       } else {
