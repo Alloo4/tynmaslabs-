@@ -1277,6 +1277,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border: 1px solid var(--border-2);
   border-radius: var(--radius-lg);
 }
+.training-content { text-align: center; }
+.training-content .training-desc { margin-left: auto; margin-right: auto; }
+.training-content .training-icon-label { justify-content: center; }
+.training-content .benefit-list { align-items: center; }
+.training-content .training-audience { justify-content: center; }
 
 /* ---------- workshop photo strip ---------- */
 .workshop-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
