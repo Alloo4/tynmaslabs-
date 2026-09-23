@@ -5,14 +5,14 @@
 <script src="assets/js/theme-init.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#05070F">
-<title>Shop | Tynmas Labs</title>
-<meta name="description" content="Shop ready-made 3D-printed products from Tynmas Labs — desk accessories, home decor, personalised gifts and more. Designed and printed in Nairobi.">
-<link rel="canonical" href="https://www.tynmaslabs.com/shop">
+<title>Training | Tynmas Labs</title>
+<meta name="description" content="A 5-week, hands-on 3D Modelling &amp; Printing training program for beginners at Tynmas Labs in Nairobi. Learn to design, model, prototype and 3D print your own creations.">
+<link rel="canonical" href="https://www.tynmaslabs.com/training">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tynmas Labs">
-<meta property="og:url" content="https://www.tynmaslabs.com/shop">
-<meta property="og:title" content="Shop | Tynmas Labs">
-<meta property="og:description" content="Shop ready-made 3D-printed products from Tynmas Labs — desk accessories, home decor, personalised gifts and more. Designed and printed in Nairobi.">
+<meta property="og:url" content="https://www.tynmaslabs.com/training">
+<meta property="og:title" content="Training | Tynmas Labs">
+<meta property="og:description" content="A 5-week, hands-on 3D Modelling &amp; Printing training program for beginners at Tynmas Labs in Nairobi. Learn to design, model, prototype and 3D print your own creations.">
 <meta property="og:image" content="https://www.tynmaslabs.com/assets/img/favicon.png">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -35,26 +35,27 @@
     </a>
     <nav class="nav-links">
       <a href="/">Home</a>
-      <a href="/shop" class="active">Shop</a>
+      <a href="/shop">Shop</a>
       <a href="/services">Services</a>
-      <a href="/training">Training</a>
+      <a href="/training" class="active">Training</a>
       <a href="/contact">Contact</a>
       <a href="https://tynmas-feedback.vercel.app" target="_blank" rel="noopener">Feedback</a>
     </nav>
     <div class="nav-actions">
-      <a href="/contact" class="btn btn-outline btn-sm"><span>Request a Quote</span></a>
+      <a href="/shop" class="btn btn-outline btn-sm"><span>Shop Now</span></a>
+      <a href="/contact" class="btn btn-primary btn-sm"><span>Request a Quote</span></a>
       <button class="theme-toggle" aria-label="Toggle light/dark theme"><span class="icon-sun">☀</span><span class="icon-moon">☾</span></button>
-      <button class="cart-btn" id="cartBtn" aria-label="Cart">🛒<span class="cart-count" id="cartCount">0</span></button>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </div>
   <div class="mobile-nav" id="mobileNav">
     <a href="/">Home</a>
-    <a href="/shop" class="active">Shop</a>
+    <a href="/shop">Shop</a>
     <a href="/services">Services</a>
-    <a href="/training">Training</a>
+    <a href="/training" class="active">Training</a>
     <a href="/contact">Contact</a>
     <a href="https://tynmas-feedback.vercel.app" target="_blank" rel="noopener">Feedback</a>
+    <a href="/shop" class="btn btn-outline">Shop Now</a>
     <a href="/contact" class="btn btn-primary">Request a Quote</a>
     <button class="theme-toggle" aria-label="Toggle light/dark theme"><span class="icon-sun">☀</span><span class="icon-moon">☾</span></button>
   </div>
@@ -62,80 +63,73 @@
 
 <main>
 
-  <!-- SHOP HEADER -->
-  <section class="container" style="padding-top:52px;padding-bottom:26px">
-    <div class="breadcrumb"><a href="/">Home</a> · Shop</div>
-    <div class="shop-toolbar">
+  <section class="container page-hero">
+    <div class="eyebrow" style="text-align:center">Training</div>
+    <h1>3D Modelling &amp; Printing Training for Beginners</h1>
+    <p>Turn your ideas into real, functional products — hands-on, beginner-friendly, and taught in our Nairobi workshop.</p>
+  </section>
+
+  <section class="container" style="padding-top:14px;padding-bottom:84px">
+    <div class="training-panel">
+      <div class="training-photo">
+        <img src="assets/img/training-classes.jpg" alt="A 3D printer mid-print beside a CAD workstation — Tynmas Labs training" width="1000" height="495" loading="lazy">
+      </div>
       <div>
-        <h1 class="page-title">Shop 3D-printed products</h1>
-        <p style="font-size:16px;color:var(--muted)" class="text-plain">Ready-made items designed and printed in Nairobi. Something specific in mind? <a href="/contact">Request a custom quote</a>.</p>
-      </div>
-      <div class="search-box">
-        <span>⌕</span>
-        <input type="text" id="searchInput" placeholder="Search products…">
-      </div>
-    </div>
-  </section>
+        <div class="eyebrow">New Program</div>
+        <h2 class="section-title">Learn 3D modelling &amp; printing, start to finish.</h2>
+        <div class="training-badge">Training for Beginners</div>
+        <p class="training-lede text-plain">Turn your ideas into real, functional products.</p>
+        <p class="training-desc text-plain">Learn how to design, model, prototype and 3D print your own creations — from beginner level to practical, real-world projects.</p>
 
-  <!-- CATEGORY FILTERS -->
-  <section class="container" style="padding-top:6px;padding-bottom:26px">
-    <div class="chip-row" id="categoryChips"></div>
-  </section>
+        <div class="training-icon-label"><span class="icon-tile">✎</span><span class="label-pill">What you'll learn</span></div>
+        <div class="benefit-list" style="margin-bottom:0">
+          <div class="benefit-item"><span class="check">✓</span>Creating your own 3D models</div>
+          <div class="benefit-item"><span class="check">✓</span>Preparing models for 3D printing</div>
+          <div class="benefit-item"><span class="check">✓</span>Operating a 3D printer</div>
+          <div class="benefit-item"><span class="check">✓</span>Designing functional products</div>
+          <div class="benefit-item"><span class="check">✓</span>Creating prototypes</div>
+          <div class="benefit-item"><span class="check">✓</span>Troubleshooting common printing problems</div>
+          <div class="benefit-item"><span class="check">✓</span>Turning ideas into physical objects</div>
+        </div>
 
-  <!-- PRODUCT GRID -->
-  <section class="container" style="padding-bottom:20px">
-    <div class="grid-4 grid-products" id="productGrid"></div>
-    <div class="no-results" id="noResults" style="display:none">
-      <div class="glyph">⌕</div>
-      <div class="title">No products found</div>
-      <div>Try a different search or category.</div>
+        <div class="training-icon-label"><span class="icon-tile">◎</span><span class="label-pill">Who it's for</span></div>
+        <div class="training-audience">
+          <span>Beginners</span><span class="dot">•</span>
+          <span>Engineers</span><span class="dot">•</span>
+          <span>Designers</span><span class="dot">•</span>
+          <span>Entrepreneurs</span><span class="dot">•</span>
+          <span>Students</span><span class="dot">•</span>
+          <span>Hobbyists</span><span class="dot">•</span>
+          <span>Makers</span>
+        </div>
+
+        <div class="training-icon-label"><span class="icon-tile">⚙</span><span class="label-pill">Training format</span></div>
+        <div class="benefit-list" style="margin-bottom:0">
+          <div class="benefit-item"><span class="check">✓</span>Hands-on practical training</div>
+          <div class="benefit-item"><span class="check">✓</span>Beginner-friendly</div>
+          <div class="benefit-item"><span class="check">✓</span>Real 3D printing projects</div>
+          <div class="benefit-item"><span class="check">✓</span>5 weeks · 2 sessions a week (2 hours each)</div>
+          <div class="benefit-item"><span class="check">✓</span>124 Manyani East Road, Nairobi</div>
+        </div>
+
+        <div class="training-highlight">
+          <div class="estimate-row">
+            <div class="estimate-cell">
+              <div class="estimate-label">Program fee</div>
+              <div class="estimate-value accent">KES 20,000</div>
+            </div>
+            <div class="estimate-cell">
+              <div class="estimate-label">Next intake</div>
+              <div class="estimate-value">Oct 8</div>
+            </div>
+          </div>
+          <a href="https://form.jotform.com/262504864135053" target="_blank" rel="noopener" class="btn btn-primary training-cta" style="width:100%;margin-top:16px">Register Now →</a>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
-
-<!-- QUICK-VIEW MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalName" tabindex="-1">
-    <div class="modal-media" id="modalMedia"><div class="img-slot"><span>Product photo</span></div></div>
-    <div class="modal-body">
-      <div class="modal-top">
-        <div class="product-cat" id="modalCat"></div>
-        <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-      </div>
-      <h2 id="modalName"></h2>
-      <div class="modal-price" id="modalPrice"></div>
-      <p class="modal-desc" id="modalDesc"></p>
-
-      <div class="option-label">Quantity</div>
-      <div class="qty-stepper">
-        <button id="qtyDec" aria-label="Decrease quantity">−</button>
-        <div class="qty-value" id="qtyValue">1</div>
-        <button id="qtyInc" aria-label="Increase quantity">+</button>
-      </div>
-
-      <div class="modal-actions">
-        <button class="btn btn-outline" id="addToCartBtn">Add to Cart</button>
-        <a href="/contact" class="btn btn-primary">Buy Now</a>
-      </div>
-      <!-- future: reviews slot -->
-      <div class="reviews-slot" style="display:none"></div>
-    </div>
-  </div>
-</div>
-
-<!-- CART DRAWER -->
-<div class="modal-overlay" id="cartOverlay">
-  <div class="cart-box" id="cartBox" role="dialog" aria-modal="true" aria-label="Cart" tabindex="-1"></div>
-</div>
-
-<!-- ADD CONFIRMATION TOAST -->
-<div class="toast" id="toast">
-  <span class="check">✓</span>
-  <span class="msg">Added to cart</span>
-</div>
-
-<div style="height:40px"></div>
 
 <footer class="site-footer">
   <div class="footer-grid">
@@ -170,13 +164,8 @@
   <div class="footer-bottom">© <span id="year"></span> Tynmas Labs · Made in Nairobi, Kenya</div>
 </footer>
 
-<!-- future: recommended products slot -->
-<div id="recommendedSlot" style="display:none"></div>
-
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/theme.js"></script>
-<script src="assets/js/cart.js"></script>
-<script src="assets/js/shop.js"></script>
 <script src="assets/js/year.js"></script>
 </body>
 </html>
