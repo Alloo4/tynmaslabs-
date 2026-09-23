@@ -1211,6 +1211,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: var(--blue-light);
 }
 
+/* ---------- training promo ---------- */
+.training-panel { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: start; }
+.training-card { padding: 30px; }
+.training-lede { font-size: 17px; font-weight: 600; color: var(--heading); margin: 14px 0 10px; }
+.training-desc { font-size: 15.5px; line-height: 1.65; color: var(--muted); max-width: 520px; }
+
 /* ---------- workshop photo strip ---------- */
 .workshop-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .workshop-photo {
@@ -1252,6 +1258,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
+  .training-panel { grid-template-columns: 1fr; gap: 28px; }
   .modal-box { grid-template-columns: 1fr; }
   .modal-media { min-height: 240px; }
   .section { padding: 56px 0; }
