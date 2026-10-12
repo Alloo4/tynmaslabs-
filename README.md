@@ -7,6 +7,8 @@ Website for Tynmas Labs, a 3D printing studio in Nairobi, Kenya. Static HTML/CSS
 - `index.html` — Home: hero, intro, how 3D printing works, featured services, why choose us, featured products, CTA
 - `shop.html` — Shop: search, category filters, product grid, quick-view modal with color/material/quantity, persistent cart, Paystack checkout
 - `services.html` — Services: six service cards with benefits and Request a Quote / Make an Inquiry CTAs
+- `training.html` — Training: 3D Modelling & Printing course details and registration link
+- `blog.html` — Blog: post listing (currently a coming-soon placeholder; replace it with post cards once posts exist)
 - `contact.html` — Contact & Quotes: quote form with drag-and-drop file upload (uploaded to Vercel Blob) and live price estimate, contact info, business hours, FAQ
 
 ## Structure
@@ -15,6 +17,8 @@ Website for Tynmas Labs, a 3D printing studio in Nairobi, Kenya. Static HTML/CSS
 index.html
 shop.html
 services.html
+training.html
+blog.html
 contact.html
 api/
   paystack-initialize.js   # starts a Paystack transaction (secret key server-side)
